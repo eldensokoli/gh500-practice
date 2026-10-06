@@ -1,5 +1,5 @@
 # Intentionally outdated, known-vulnerable versions so Dependabot raises alerts.
-flask==0.12.2
+flask==3.1.3
 jinja2==2.10
 werkzeug==0.14.1
 requests==2.19.1
