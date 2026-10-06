@@ -1,7 +1,7 @@
 # Intentionally outdated, known-vulnerable versions so Dependabot raises alerts.
 flask==0.12.2
 jinja2==2.10
-werkzeug==0.14.1
+werkzeug==3.1.9
 requests==2.19.1
 pyyaml==5.3
 urllib3==1.24.1
