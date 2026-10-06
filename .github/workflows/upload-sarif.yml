@@ -1,0 +1,27 @@
+# Uploads a third-party SARIF file to code scanning, the way you would for a
+# non-CodeQL scanner (Trivy, Semgrep, Checkmarx...). Run it manually from the Actions tab.
+# Exam notes:
+# - Uses github/codeql-action/upload-sarif, needs security-events: write.
+# - `category` keeps these results separate from the CodeQL ones.
+# - SARIF must be 2.1.0; GitHub limits file size and number of results per upload.
+name: Upload third-party SARIF
+
+on:
+  workflow_dispatch:
+
+permissions:
+  security-events: write
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: sarif/sample-scanner.sarif
+          category: fake-third-party-scanner

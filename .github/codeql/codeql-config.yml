@@ -1,0 +1,20 @@
+# CodeQL configuration file, referenced by the workflow via `config-file`.
+# Exam notes:
+# - Built-in suites: default (high precision), security-extended (more queries,
+#   more false positives), security-and-quality (adds maintainability queries).
+# - paths / paths-ignore only affect interpreted languages; compiled languages
+#   analyse whatever the build compiles.
+name: "GH-500 practice config"
+
+queries:
+  - uses: security-extended
+
+paths-ignore:
+  - labs
+  - sarif
+  - "**/node_modules"
+
+# Lab 3 idea: try switching to security-and-quality, or add a query pack, e.g.
+# packs:
+#   javascript-typescript:
+#     - codeql/javascript-queries

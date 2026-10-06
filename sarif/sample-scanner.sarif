@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "FakeScanner",
+          "version": "1.0.0",
+          "informationUri": "https://example.com/fakescanner",
+          "rules": [
+            {
+              "id": "FAKE001",
+              "name": "HardcodedBindAllInterfaces",
+              "shortDescription": { "text": "Server binds to all network interfaces" },
+              "fullDescription": { "text": "Binding to 0.0.0.0 exposes the service on every interface." },
+              "help": { "text": "Bind to 127.0.0.1 unless the service must be reachable externally." },
+              "properties": { "tags": ["security"], "security-severity": "5.3" }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "FAKE001",
+          "level": "warning",
+          "message": { "text": "app.run() binds to 0.0.0.0." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "app/app.py" },
+                "region": { "startLine": 87 }
+              }
+            }
+          ],
+          "partialFingerprints": { "primaryLocationLineHash": "fake001-app-py-87" }
+        }
+      ]
+    }
+  ]
+}

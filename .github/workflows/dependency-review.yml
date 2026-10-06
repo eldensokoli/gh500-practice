@@ -1,0 +1,25 @@
+# Dependency review blocks PRs that add vulnerable dependencies.
+# Free on public repos; private repos need GitHub Code Security (GHAS).
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write   # lets the action post its summary comment
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
+          comment-summary-in-pr: always
+          # deny-licenses: GPL-3.0, AGPL-3.0   # Lab idea: license enforcement

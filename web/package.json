@@ -1,0 +1,13 @@
+{
+  "name": "gh500-practice-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deliberately vulnerable Express app for GH-500 practice. DO NOT DEPLOY.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "4.16.0",
+    "lodash": "4.17.15",
+    "minimist": "1.2.0",
+    "node-fetch": "2.6.0"
+  }
+}
