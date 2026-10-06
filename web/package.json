@@ -5,7 +5,7 @@
   "description": "Deliberately vulnerable Express app for GH-500 practice. DO NOT DEPLOY.",
   "main": "server.js",
   "dependencies": {
-    "express": "4.16.0",
+    "express": "5.2.1",
     "lodash": "4.17.15",
     "minimist": "1.2.0",
     "node-fetch": "2.6.0"
